@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+# 关闭COMIDE模块
+scripts/config --disable CONFIG_COMEDI
+
+# 开启FTRACE模块
+scripts/config --enable CONFIG_FTRACE
