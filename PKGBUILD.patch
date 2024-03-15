@@ -1,0 +1,30 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index 01622ea..9e4a063 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -100,9 +100,13 @@ fi
+ options=('!strip')
+ _srcname="linux-${pkgver}-xanmod${xanmod}"
+ 
++_cjktty_repo="https://github.com/zhmars/cjktty-patches"
++
+ source=("https://cdn.kernel.org/pub/linux/kernel/v${_branch}/linux-${_major}.tar."{xz,sign}
+         "patch-${pkgver}-xanmod${xanmod}${_revision}.xz::https://sourceforge.net/projects/xanmod/files/releases/${_sf_branch}/${pkgver}-xanmod${xanmod}/patch-${pkgver}-xanmod${xanmod}.xz/download"
+-        choose-gcc-optimization.sh)
++        choose-gcc-optimization.sh
++        "${_cjktty_repo}/raw/master/v${_branch}/cjktty-${_major}.patch"
++        "${_cjktty_repo}/raw/master/cjktty-add-cjk32x32-font-data.patch")
+ validpgpkeys=(
+     'ABAF11C65A2970B130ABE3C479BE3E4300411886' # Linux Torvalds
+     '647F28654894E3BD457199BE38DBBDC86092693E' # Greg Kroah-Hartman
+@@ -118,7 +122,9 @@ done
+ sha256sums=('ef31144a2576d080d8c31698e83ec9f66bf97c677fa2aaf0d5bbb9f3345b1069'
+             'SKIP'
+             'ffa31e3d22f8bbcb44f99ba72399c7ba09e3387e57ca46cdc31d1b18b2e91903'
+-            'a8b38eb482eb685944757182c4886404abc12703e5e56ec39c7d61298d17d71f')
++            'a8b38eb482eb685944757182c4886404abc12703e5e56ec39c7d61298d17d71f'
++            'SKIP'
++            'SKIP')
+ 
+ export KBUILD_BUILD_HOST=${KBUILD_BUILD_HOST:-archlinux}
+ export KBUILD_BUILD_USER=${KBUILD_BUILD_USER:-makepkg}
