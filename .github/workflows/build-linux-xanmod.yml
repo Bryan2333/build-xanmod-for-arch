@@ -31,7 +31,7 @@ jobs:
            docker run -t -v ${{ github.workspace }}:/build archlinux:base-devel /bin/bash /build/entrypoint.sh
 
        - name: Upload binaries to release
-         uses: softprops/action-gh-release@v1
+         uses: softprops/action-gh-release@v2
          with:
            files: |
              ${{ github.workspace }}/*.pkg.tar.*
